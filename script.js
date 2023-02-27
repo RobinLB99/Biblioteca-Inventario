@@ -10,10 +10,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     console.log(biblioteca);
 
+    let subirDisplay = document.getElementsByClassName("up")
+
     let respuesta = document.querySelector("#respuesta")
 
     document.getElementById("ingresar").addEventListener("click", () => {
 
+      subirDisplay.setAttribute("style", "display: none")
       respuesta.innerHTML = ""
 
       let form = document.createElement("form")
@@ -100,6 +103,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Busca un libro por su nombre
     document.getElementById("buscar").addEventListener('click', () => {
+
+      subirDisplay.setAttribute("style", "display: none")
       respuesta.innerHTML = ""
 
       console.log(biblioteca);
@@ -188,6 +193,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("ver").addEventListener("click", () => {
 
+      subirDisplay.setAttribute("style", "display: grid")
+
       respuesta.innerHTML = ""
       biblioteca.forEach(libro => {
         // Crear el elemento div para el libro
@@ -215,6 +222,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     document.getElementById("clean").addEventListener("click", () => {
+      subirDisplay.setAttribute("style", "display: none")
       respuesta.innerHTML = ``
     })
 });
