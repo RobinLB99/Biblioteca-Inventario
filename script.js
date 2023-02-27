@@ -40,6 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
       price.value = null
 
       ingresar.type = "button";
+      ingresar.className = "btn"
       ingresar.value = "Ingresar libro";
 
       form.appendChild(title);
