@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     console.log(biblioteca);
 
-    let subirDisplay = document.getElementsByClassName("up")
+    const subirDisplay = document.querySelector(".up")
 
     let respuesta = document.querySelector("#respuesta")
 
