@@ -43,6 +43,26 @@ header h1, header p {
     margin: 0 auto;
 }
 
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.botones {
+    padding-top: 20px;
+    width: fit-content;
+    min-height: 100px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px 30px;
+}
+
 .btn {
     display: flex;
     flex-direction: row;
@@ -63,26 +83,6 @@ header h1, header p {
 .btn:active {
     background-color: rgb(248, 190, 14);
     border: 1px solid rgb(132, 105, 0);
-}
-
-main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    width: 100%;
-}
-
-.botones {
-    padding-top: 20px;
-    width: fit-content;
-    min-height: 100px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 10px 30px;
 }
 
 #respuesta {
