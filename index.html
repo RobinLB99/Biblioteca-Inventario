@@ -5,7 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="./styles/mediaQuery.css">
+    <link rel="stylesheet" href="./styles/animations.css">
     <title>Document</title>
     <script src="biblioteca.js"></script>
     <script src="script.js"></script>
@@ -17,22 +19,26 @@
     </header>
     <main>
         <div class="botones" id="botones">
-            <div class="btn_enter">
+            <div class="btn enter" id="ingresar">
                 <i class="fas fa-upload"></i>
-                <input type="button" id="ingresar" value="Ingresar libro a la biblioteca">
+                <p>Ingresar libro</p>
             </div>
-            <div class="btn_ver">
+            <div class="btn enter" id="buscar">
+                <i class="fas fa-search"></i>
+                <p>Buscar libro</p>
+            </div>
+            <div class="btn ver" id="ver">
                 <i class="fas fa-eye"></i>
-                <input type="button" id="ver" value="Ver libros de la Biblioteca">
+                <p>Ver libros</p>
             </div>
-            <div class="btn_clear">
+            <div class="btn clear" id="clean">
                 <i class="fas fa-broom"></i>
-                <input type="button" id="clean" value="Limpiar pantalla">
+                <p>Limpiar pantalla</p>
             </div>
         </div>
         <div id="respuesta"></div>
     </main>
-    <a class="up" href="#botones">
+    <a class="up" href="#header">
         <i class="fas fa-chevron-up"></i>
     </a>
 </body>

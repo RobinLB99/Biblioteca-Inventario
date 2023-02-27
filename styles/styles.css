@@ -10,7 +10,7 @@ html, body {
 }
 
 .up {
-    display: grid;
+    display: none;
     place-items: center;
     background-color: #fff;
     width: 50px;
@@ -24,11 +24,16 @@ html, body {
     text-align: center;
     text-decoration: none;
     color: #000;
+    border: 2px solid #434343;
 }
 
 .up:hover {
     cursor: pointer;
-    border: 2px solid #434343;
+}
+
+.up:active {
+    background-color: #434343;
+    color: #fff;
 }
 
 header {
@@ -41,24 +46,6 @@ header {
 header h1, header p {
     width: fit-content;
     margin: 0 auto;
-}
-
-input[type="button"] {
-    border: 1px solid rgb(114, 114, 114);
-    padding: 10px;
-    border-radius: 4px;
-    margin: 10px 5px
-}
-
-input[type="button"]:hover {
-    cursor: pointer;
-    background-color: rgb(251, 209, 43);
-    border: 1px solid rgb(175, 141, 1);
-}
-
-input[type="button"]:active {
-    background-color: rgb(248, 190, 14);
-    border: 1px solid rgb(132, 105, 0);
 }
 
 main {
@@ -79,6 +66,28 @@ main {
     justify-content: center;
     align-items: center;
     gap: 10px 30px;
+}
+
+.btn {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    background-color: #f8f8f8;
+    border: 1px solid rgb(114, 114, 114);
+    padding: 10px;
+    border-radius: 4px;
+    margin: 10px 5px
+}
+
+.btn:hover {
+    cursor: pointer;
+    background-color: rgb(251, 209, 43);
+    border: 1px solid rgb(175, 141, 1);
+}
+
+.btn:active {
+    background-color: rgb(248, 190, 14);
+    border: 1px solid rgb(132, 105, 0);
 }
 
 #respuesta {
@@ -108,6 +117,9 @@ main {
 
 #sinLlenar {
     color: red;
+    animation-name: vibracion;
+    animation-duration: 0.3s;
+    animation-iteration-count: 0.3s;
 }
 
 #formulario input[type="text"], #formulario input[type="number"] {
@@ -132,28 +144,4 @@ main {
 
 .clave {
     font-weight: bold;
-}
-
-@media only screen and (max-width: 1200px) {
-    #respuesta {
-        grid-template-columns: repeat(4, 1fr);
-    }
-}
-
-@media only screen and (max-width: 930px) {
-    #respuesta {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-
-@media only screen and (max-width: 700px) {
-    #respuesta {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media only screen and (max-width: 450px) {
-    #respuesta {
-        grid-template-columns: 1fr;
-    }
 }
