@@ -60,8 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
           let existeHijo = document.querySelector("#respuesta #sinLlenar");
 
           if (existeHijo) {
-            let alert = document.getElementById("sinLlenar")
-            alert.remove()
+            document.getElementById("sinLlenar").remove()
           }
 
           let alert = document.createElement("p")
@@ -84,6 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
           console.log(biblioteca);
 
           respuesta.innerHTML = ""
+
           let ingresado = document.createElement("p")
           ingresado.id = "ingresado"
           ingresado.textContent = "Libro ingresado con exito!"
