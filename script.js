@@ -72,7 +72,8 @@ document.addEventListener("DOMContentLoaded", () => {
           let alert = document.createElement("p")
           alert.textContent = "Existen campos sin llenar"
           alert.id = "sinLlenar"
-          respuesta.appendChild(alert)
+          //respuesta.appendChild(alert)
+          respuesta.insertBefore(alert, respuesta.firstChild)
 
           if (!titleValue) {
             title.focus()
@@ -184,7 +185,7 @@ document.addEventListener("DOMContentLoaded", () => {
           let alert = document.createElement("p")
           alert.textContent = "Ingrese un libro a buscar"
           alert.id = "sinLlenar"
-          respuesta.appendChild(alert)
+          respuesta.insertBefore(alert, respuesta.firstChild)
 
           nomLibro.focus()
         }
