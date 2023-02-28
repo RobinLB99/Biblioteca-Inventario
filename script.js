@@ -8,10 +8,15 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
+    console.log(biblioteca);
+
+    const subirDisplay = document.querySelector(".up")
+
     let respuesta = document.querySelector("#respuesta")
 
     document.getElementById("ingresar").addEventListener("click", () => {
 
+      subirDisplay.setAttribute("style", "display: none")
       respuesta.innerHTML = ""
 
       let form = document.createElement("form")
@@ -40,6 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
       price.value = null
 
       ingresar.type = "button";
+      ingresar.className = "btn"
       ingresar.value = "Ingresar libro";
 
       form.appendChild(title);
@@ -66,7 +72,8 @@ document.addEventListener("DOMContentLoaded", () => {
           let alert = document.createElement("p")
           alert.textContent = "Existen campos sin llenar"
           alert.id = "sinLlenar"
-          respuesta.appendChild(alert)
+          //respuesta.appendChild(alert)
+          respuesta.insertBefore(alert, respuesta.firstChild)
 
           if (!titleValue) {
             title.focus()
@@ -95,7 +102,99 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
+    // Busca un libro por su nombre
+    document.getElementById("buscar").addEventListener('click', () => {
+
+      subirDisplay.setAttribute("style", "display: none")
+      respuesta.innerHTML = ""
+
+      console.log(biblioteca);
+
+      let form = document.createElement("form")
+      form.id = "formulario"
+
+      let nomLibro = document.createElement("input")
+      nomLibro.type = "text"
+      nomLibro.placeholder = "Nombre del libro a buscar"
+
+      let buscar = document.createElement("input")
+      buscar.type = "button"
+      buscar.value = "Buscar"
+      buscar.className = "btn"
+
+      form.appendChild(nomLibro)
+      form.appendChild(buscar)
+      respuesta.appendChild(form)
+
+      // Buscar libro
+      buscar.addEventListener("click", () => {
+        let libroBuscado = nomLibro.value
+        libroBuscado = libroBuscado.toLowerCase()
+
+        if (libroBuscado) {
+          //console.log(biblioteca.some(libro => libro.title.toLowerCase() === libroBuscado));
+
+          if (biblioteca.some(libro => libro.title.toLowerCase() === libroBuscado) === true) {
+            respuesta.innerHTML = ""
+
+            console.log(biblioteca.find(libro => libro.title.toLowerCase() === libroBuscado));
+            let libroEncontrado = biblioteca.find(libro => libro.title.toLowerCase() === libroBuscado)
+
+            //
+            let contentDivLibro = document.createElement("div")
+            contentDivLibro.setAttribute("style", "grid-column: -1/1; display: grid; place-items: center")
+
+            let divLibro = document.createElement("div");
+            divLibro.classList.add("libro");
+            divLibro.setAttribute("style", "width: 250px")
+
+
+            // Crear los elementos p para la clave y valor de cada propiedad
+            for (var clave in libroEncontrado) {
+              let pClave = document.createElement("p");
+              pClave.classList.add("clave");
+              pClave.textContent = clave.toString().toUpperCase() + ": ";
+
+              let pValor = document.createElement("p");
+              pValor.classList.add("valor");
+              pValor.textContent = libroEncontrado[clave];
+
+              // Anidar los elementos p dentro del divLibro
+              divLibro.appendChild(pClave);
+              divLibro.appendChild(pValor);
+            }
+
+            contentDivLibro.appendChild(divLibro);
+            respuesta.appendChild(contentDivLibro);
+
+          } else {
+            respuesta.innerHTML = ""
+            let libroNoExiste = document.createElement("p")
+            libroNoExiste.setAttribute("style", "grid-column: -1/1; text-align: center")
+            libroNoExiste.textContent = "El libro que busca no existe en la biblioteca!"
+            respuesta.appendChild(libroNoExiste);
+          }
+
+        } else {
+          let existeHijo = document.querySelector("#respuesta #sinLlenar");
+
+          if (existeHijo) {
+            document.getElementById("sinLlenar").remove()
+          }
+
+          let alert = document.createElement("p")
+          alert.textContent = "Ingrese un libro a buscar"
+          alert.id = "sinLlenar"
+          respuesta.insertBefore(alert, respuesta.firstChild)
+
+          nomLibro.focus()
+        }
+      })
+    })
+
     document.getElementById("ver").addEventListener("click", () => {
+
+      subirDisplay.setAttribute("style", "display: grid")
 
       respuesta.innerHTML = ""
       biblioteca.forEach(libro => {
@@ -124,6 +223,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
 
     document.getElementById("clean").addEventListener("click", () => {
+      subirDisplay.setAttribute("style", "display: none")
       respuesta.innerHTML = ``
     })
 });

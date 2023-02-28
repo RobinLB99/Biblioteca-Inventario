@@ -1,0 +1,23 @@
+@media only screen and (max-width: 1200px) {
+    #respuesta {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media only screen and (max-width: 930px) {
+    #respuesta {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    #respuesta {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    #respuesta {
+        grid-template-columns: 1fr;
+    }
+}
