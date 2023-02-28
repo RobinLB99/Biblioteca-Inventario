@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
     console.log(biblioteca);
 
     const subirDisplay = document.querySelector(".up")
-
     let respuesta = document.querySelector("#respuesta")
 
     document.getElementById("ingresar").addEventListener("click", () => {
@@ -55,6 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
       form.appendChild(ingresar);
 
       respuesta.appendChild(form)
+      respuesta.setAttribute("style", "place-content: start")
 
       ingresar.addEventListener("click", () => {
         let titleValue = title.value
@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
           let alert = document.createElement("p")
           alert.textContent = "Existen campos sin llenar"
           alert.id = "sinLlenar"
-          //respuesta.appendChild(alert)
+          alert.setAttribute("style", "grid-column:-1/1; width:100%")
           respuesta.insertBefore(alert, respuesta.firstChild)
 
           if (!titleValue) {
@@ -94,6 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
           let ingresado = document.createElement("p")
           ingresado.id = "ingresado"
           ingresado.textContent = "Libro ingresado con exito!"
+          ingresado.setAttribute("style", "grid-column:-1/1; width:100%")
           respuesta.appendChild(ingresado)
 
         }
@@ -125,6 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
       form.appendChild(nomLibro)
       form.appendChild(buscar)
       respuesta.appendChild(form)
+      respuesta.setAttribute("style", "place-content: start")
 
       // Buscar libro
       buscar.addEventListener("click", () => {
@@ -185,6 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
           let alert = document.createElement("p")
           alert.textContent = "Ingrese un libro a buscar"
           alert.id = "sinLlenar"
+          alert.setAttribute("style", "grid-column:-1/1; width:100%")
           respuesta.insertBefore(alert, respuesta.firstChild)
 
           nomLibro.focus()
@@ -194,9 +197,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("ver").addEventListener("click", () => {
 
-      subirDisplay.setAttribute("style", "display: grid")
+      //subirDisplay.setAttribute("style", "display: grid")
 
       respuesta.innerHTML = ""
+      respuesta.setAttribute("style", "place-content: start")
+
       biblioteca.forEach(libro => {
         // Crear el elemento div para el libro
         let divLibro = document.createElement("div");
@@ -222,8 +227,14 @@ document.addEventListener("DOMContentLoaded", () => {
       })
     })
 
+    // limpiar pantalla
     document.getElementById("clean").addEventListener("click", () => {
       subirDisplay.setAttribute("style", "display: none")
-      respuesta.innerHTML = ``
+      respuesta.innerHTML = ''
+      let hacerQue = document.createElement("p")
+      hacerQue.textContent = "¿Que desea hacer?"
+      hacerQue.setAttribute("style", "grid-column:-1/1;width: 100%; text-align: center")
+      respuesta.appendChild(hacerQue)
+      respuesta.setAttribute("style", "place-content: center")
     })
 });
